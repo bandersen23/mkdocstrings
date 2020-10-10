@@ -101,8 +101,8 @@ def do_js_highlight(
         src = textwrap.dedent(src)
     if inline:
         src = re.sub(r"\n\s*", "", src)
-        return f'<code class="hightlight">{do_mark_safe(src)}</code>'
-    return f'<div class="hightlight {language or ""}"><pre><code>\n{do_mark_safe(src)}\n</code></pre></div>'
+        return f'<code class="highlight">{do_mark_safe(src)}</code>'
+    return f'<div class="highlight {language or ""}"><pre><code>\n{do_mark_safe(src)}\n</code></pre></div>'
 
 
 def do_any(seq: Sequence, attribute: str = None) -> bool:
