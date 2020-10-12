@@ -67,7 +67,7 @@ def do_highlight(
     result = highlighter.highlight(src=src, language=language, linestart=line_start, inline=inline)
 
     if inline:
-        return f'<code class="highlight language-{language}">{do_mark_safe(result.text)}</code>'
+        return do_mark_safe(f'<code class="highlight language-{language}">{result.text}</code>')
     return do_mark_safe(result)
 
 
@@ -101,8 +101,8 @@ def do_js_highlight(
         src = textwrap.dedent(src)
     if inline:
         src = re.sub(r"\n\s*", "", src)
-        return f'<code class="highlight">{do_mark_safe(src)}</code>'
-    return f'<div class="highlight {language or ""}"><pre><code>\n{do_mark_safe(src)}\n</code></pre></div>'
+        return do_mark_safe(f'<code class="highlight">{src}</code>')
+    return do_mark_safe(f'<div class="highlight {language or ""}"><pre><code>\n{src}\n</code></pre></div>')
 
 
 def do_any(seq: Sequence, attribute: str = None) -> bool:
